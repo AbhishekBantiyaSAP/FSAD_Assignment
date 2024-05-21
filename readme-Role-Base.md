@@ -1,0 +1,7 @@
+
+| Endpoint    | Method | Description                            | Input (JSON)                                       | Success Response (JSON)                               | Error Response (JSON)                                   |
+|-------------|--------|----------------------------------------|---------------------------------------------------|-------------------------------------------------------|---------------------------------------------------------|
+| `/login`    | POST   | Authenticates user and provides a token| `{ "username": "user2", "password": "Abhishek1234" }` | `{ "token": "your_jwt_token_here" }`                   | `{ "message": "Invalid username or password" }`         |
+| `/register` | POST   | Registers a new user                   | `{ "username": "newuser", "password": "newpassword" }` | `{ "message": "User registered successfully" }`        | `{ "message": "Username already exists" }`<br>`{ "message": "Internal server error" }` |
+| `/admin`    | GET    | Accesses admin route                   | (Authorization Header: `Bearer your_jwt_token_here`) | `{ "message": "Admin route accessed successfully" }` | `{ "message": "Unauthorized" }`<br>`{ "message": "Invalid token" }`<br>`{ "message": "Access forbidden, admin rights required" }` |
+| `/user`     | GET    | Accesses user route                    | (Authorization Header: `Bearer your_jwt_token_here`) | `{ "message": "User route accessed successfully" }`   | `{ "message": "Unauthorized" }`<br>`{ "message": "Invalid token" }` |
